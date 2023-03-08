@@ -25,6 +25,7 @@
                         <thead>
                             <tr>
                                 <th class="white-space-nowrap fs--1 align-middle" style="max-width:20px; width:18px;">No</th>
+                                <th class="white-space-nowrap fs--1 align-middle" style="max-width:20px; width:18px;">Kode</th>
                                 <th class="sort align-middle ps-4" scope="col" data-sort="category" style="width:220px;">Nama Kategori</th>
                                 <th class="sort align-middle ps-4" scope="col" data-sort="category" style="width:100px;">Menu</th>
                                 <th class="sort align-middle ps-4" scope="col" data-sort="category" style="width:350px;">URL</th>

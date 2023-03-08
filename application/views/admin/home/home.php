@@ -1,8 +1,8 @@
 <div class="pb-5">
     <div class="row g-4">
-        <div class="col-12 col-xxl-6">
+        <div class="col-12">
             <div class="mb-4">
-                <h2 class="mb-2"><img width="40" style="margin-top: -5px;" src="<?= base_url('assets/front/logo/informatika.png') ?>" alt=""> Informatika</h2>
+                <h2 class="mb-2"><img width="40" style="margin-top: -5px;" src="<?= base_url('assets/logo/informatika.png') ?>" alt=""> Informatika</h2>
                 <h5 class="text-700 fw-semi-bold">Karya Nyata Untuk UNIBA !!!</h5>
             </div>
             <div class="alert alert-info alert-dismissible fade show text-white mb-4 " role="alert" style="font-size:13px">
@@ -36,6 +36,8 @@
                 </div>
             </div> -->
             <hr class="bg-200 mb-6 mt-4" />
+
+
         </div>
     </div>
 </div>

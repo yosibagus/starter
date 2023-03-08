@@ -1,11 +1,11 @@
 <nav class="mb-2" aria-label="breadcrumb">
     <ol class="breadcrumb mb-0">
         <li class="breadcrumb-item"><a href="#!">Informasi</a></li>
-        <li class="breadcrumb-item"><a href="#kategori">Kategori</a></li>
-        <li class="breadcrumb-item active">Tambah Kategori</li>
+        <li class="breadcrumb-item"><a href="#kategori">Blog</a></li>
+        <li class="breadcrumb-item active">Tambah Blog</li>
     </ol>
 </nav>
-<h2 class="mb-4">Tambah Kategori</h2>
+<h2 class="mb-4">Tambah Blog</h2>
 <div class="row">
     <div class="col-xl-12">
         <form class="row g-3 mb-6">
@@ -17,12 +17,22 @@
                 </div>
             </div>
             <div class="col-sm-6">
-                <div class="form-floating">
-                    <select name="publish" id="publish" class="form-control">
-                        <option value="1">YA</option>
-                        <option value="0">TIDAK</option>
-                    </select>
-                    <label for="publish">Publish?</label>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input class="form-control" id="kode" value="<?= $kode ?>" readonly type="text" placeholder="Kode Blog" />
+                            <label for="kode">Kode Blog</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select name="publish" id="publish" class="form-control">
+                                <option value="1">YA</option>
+                                <option value="0">TIDAK</option>
+                            </select>
+                            <label for="publish">Publish?</label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>

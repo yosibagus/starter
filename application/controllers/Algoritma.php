@@ -26,11 +26,6 @@ class Algoritma extends CI_Controller
         $this->load->view('admin/home/home');
     }
 
-    public function kategori()
-    {
-        $this->load->view('admin/kategori/kategori');
-    }
-
     public function menu()
     {
         $data['menu'] = $this->mcore->getMenu()->result_array();
@@ -42,9 +37,15 @@ class Algoritma extends CI_Controller
         $this->load->view('admin/menu/menu_tambah');
     }
 
+    public function kategori()
+    {
+        $this->load->view('admin/kategori/kategori');
+    }
+
     public function kategori_tambah()
     {
         $data['menu'] = $this->mcore->getMenu()->result_array();
+        $data['kode'] = $this->mcore->generateKode();
         $this->load->view('admin/kategori/kategori_tambah', $data);
     }
 

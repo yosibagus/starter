@@ -1,13 +1,18 @@
 <nav class="mb-2" aria-label="breadcrumb">
     <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item"><a href="#!">Informasi</a></li>
-        <li class="breadcrumb-item"><a href="#kategori">Kategori</a></li>
-        <li class="breadcrumb-item"><a href=""><?= $data['nama_kategori'] ?></a></li>
+        <li class="breadcrumb-item"><a href="">Main Menu</a></li>
+        <li class="breadcrumb-item"><a href="#/kategori">Multi Blog</a></li>
+        <li class="breadcrumb-item"><a href="#/detail_kategori/<?= $data['id_kategori'] . "/" . $data['kode_kategori'] ?>"><?= $data['nama_kategori'] ?></a></li>
         <li class="breadcrumb-item active">Tambah</li>
     </ol>
 </nav>
 
 <h2 class="mb-4">Form <?= $data['nama_kategori'] ?></h2>
+<div class="alert  alert-soft-info d-flex align-items-center" role="alert">
+    <span class="fas fa-info-circle text-info fs-3 me-3"></span>
+    <p class="mb-0 flex-1"><?= $data['deskripsi_kategori'] ?></p>
+    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
 <div class="row">
     <div class="col-xl-12">
         <form method="POST" action="<?= base_url('core/informasi_tambah') ?>" enctype="multipart/form-data" id="form-informasi" class="row g-3 mb-6">
@@ -63,6 +68,7 @@
                 </div>
             </div>
             <div class="col-12 gy-6">
+                <label for="">Word Kolom</label>
                 <textarea id="isi_informasi" name="isi_informasi"></textarea>
             </div>
             <div class="col-12 gy-6">

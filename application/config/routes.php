@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-$route['default_controller'] = 'page';
+$route['default_controller'] = 'algoritma';
 $route['404_override'] = 'page/notfound';
 $route['translate_uri_dashes'] = FALSE;
 

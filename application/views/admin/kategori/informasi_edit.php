@@ -1,8 +1,8 @@
 <nav class="mb-2" aria-label="breadcrumb">
     <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item"><a href="#!">Main</a></li>
-        <li class="breadcrumb-item"><a href="#!"><?= $detail['nama_kategori'] ?></a></li>
-        <li class="breadcrumb-item"><a href="#!">Detail</a></li>
+        <li class="breadcrumb-item"><a href="#!">Main Menu</a></li>
+        <li class="breadcrumb-item"><a href="#/kategori">Multi Blog</a></li>
+        <li class="breadcrumb-item"><a href="#/detail_kategori/<?= $detail['id_kategori'] . "/" . $detail['kode_kategori'] ?>"><?= $detail['nama_kategori'] ?></a></li>
         <li class="breadcrumb-item active"><?= $detail['judul_informasi'] ?></li>
     </ol>
 </nav>
@@ -72,7 +72,7 @@
                 <textarea id="isi_informasi" name="isi_informasi"><?= $detail['isi_informasi'] ?></textarea>
             </div>
             <div class="col-12 gy-6">
-                <textarea id="informasi" name="informasi"><?= $detail['isi_informasi'] ?></textarea>
+                <textarea id="informasi" name="informasi" hidden><?= $detail['isi_informasi'] ?></textarea>
             </div>
             <div class="col-12 gy-6">
                 <div class="row g-3 justify-content-end">

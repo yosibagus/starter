@@ -29,6 +29,15 @@ class Core_model extends CI_Model
         $this->db->update('master_kategori', $data);
     }
 
+    public function generateKode()
+    {
+        $data = $this->db->query("SELECT max(id_kategori) as kategoriMax from master_kategori")->row_array();
+
+        $kode = $this->db->query("SELECT kode from master_kategori where id_kategori = '$data[kategoriMax]'")->row_array();
+        $kodemax = substr($kode['kode'], 1);
+        return "M" . $kodemax + 1;
+    }
+
     public function getKategori()
     {
         $this->db->select('*');

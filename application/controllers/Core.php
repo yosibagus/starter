@@ -58,6 +58,7 @@ class Core extends CI_Controller
         $deskripsi_kategori = $this->input->post('deskripsi_kategori');
         $url = $this->input->post('url');
         $data = [
+            'kode' => $this->mcore->generateKode(),
             'kode_kategori' => $kode,
             'nama_kategori' => $kategori,
             'keterangan_kategori' => $keterangan,
@@ -99,6 +100,9 @@ class Core extends CI_Controller
             echo '<tr class="hover-actions-trigger btn-reveal-trigger position-static">
             <td class="fs--1 align-middle">
                 ' . $i++ . '
+            </td>
+            <td class="fs--1 align-middle">
+                ' . $get['kode'] . '
             </td>
             <td class="tags align-middle review pb-2 ps-4" style="min-width:220px;">
                 <a href="' . base_url('algoritma/#/detail_kategori/') . $get['id_kategori'] . "/" . $get['kode_kategori'] . '">' . $get['nama_kategori'] . '</a>
@@ -317,98 +321,6 @@ class Core extends CI_Controller
 
         $this->db->where('id_informasi', $id);
         $this->db->update('master_informasi', $input);
-
-        echo json_encode($input);
-    }
-
-    public function data_dosen()
-    {
-        $data = $this->db->get('master_dosen')->result_array();
-        $i = 1;
-        $html = "";
-        foreach ($data as $get) {
-            $html .= "<tr>";
-            $html .= "<td>" . $i++ . "</td>";
-            $html .= "<td>" . $get['nama_dosen'] . "</td>";
-            $html .= "<td>" . $get['nip_dosen'] . "</td>";
-            $html .= "<td>" . $get['jabatan'] . "</td>";
-            $html .= "<td>
-                        <a href='" . base_url('core/delete/') . $get['id_dosen'] . "' class='badge bg-danger'><i class='fa fa-trash'></i></a>
-                        <a href='" . base_url('algoritma/#/dosen_edit/') . $get['id_dosen'] . "' class='badge bg-info'><i class='fa fa-pencil'></i></a>
-                     </td>";
-            $html .= "</tr>";
-        }
-        echo $html;
-    }
-
-    public function delete($id_dosen)
-    {
-        $this->db->where('id_dosen', $id_dosen);
-        $this->db->delete('master_dosen');
-        redirect("algoritma/#/dosen");
-    }
-
-    public function dosen_tambah()
-    {
-        $config['upload_path']          = './assets/foto';
-        $config['allowed_types']        = 'gif|jpg|jpeg|png|pdf|docx|doc|xls';
-        $config['max_width']            = 5024;
-
-        $this->load->library('upload', $config);
-        $this->load->helper('string');
-
-        if (!$this->upload->do_upload('foto_dosen')) {
-            $data = array('error' => $this->upload->display_errors());
-            $input = [
-                'nip_dosen' => $this->input->post('nik_dosen'),
-                'nama_dosen' => $this->input->post('nama_dosen'),
-                'jabatan' => $this->input->post('jabatan'),
-                'foto_dosen' => 'default.png',
-            ];
-        } else {
-            $data = $this->upload->data();
-            $input = [
-                'nip_dosen' => $this->input->post('nik_dosen'),
-                'nama_dosen' => $this->input->post('nama_dosen'),
-                'jabatan' => $this->input->post('jabatan'),
-                'foto_dosen' => $data['file_name'],
-            ];
-        }
-
-        $this->db->insert('master_dosen', $input);
-
-        echo json_encode($input);
-    }
-
-    public function dosen_edit()
-    {
-        $config['upload_path']          = './assets/foto';
-        $config['allowed_types']        = 'gif|jpg|jpeg|png|pdf|docx|doc|xls';
-        $config['max_width']            = 5024;
-
-        $this->load->library('upload', $config);
-        $this->load->helper('string');
-
-        if (!$this->upload->do_upload('foto_dosen')) {
-            $data = array('error' => $this->upload->display_errors());
-            $input = [
-                'nip_dosen' => $this->input->post('nik_dosen'),
-                'nama_dosen' => $this->input->post('nama_dosen'),
-                'jabatan' => $this->input->post('jabatan')
-            ];
-        } else {
-            $data = $this->upload->data();
-            $input = [
-                'nip_dosen' => $this->input->post('nik_dosen'),
-                'nama_dosen' => $this->input->post('nama_dosen'),
-                'jabatan' => $this->input->post('jabatan'),
-                'foto_dosen' => $data['file_name'],
-            ];
-        }
-        $id = $this->input->post('id_dosen');
-
-        $this->db->where('id_dosen', $id);
-        $this->db->update('master_dosen', $input);
 
         echo json_encode($input);
     }
