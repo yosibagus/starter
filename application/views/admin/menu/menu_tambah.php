@@ -44,7 +44,7 @@
             var form = $('#form-dosen')[0];
             var data = new FormData(form);
             $.ajax({
-                url: '<?= base_url('core/dosen_tambah') ?>',
+                url: '<?= base_url('core/menu_tambah') ?>',
                 type: 'post',
                 enctype: 'multipart/form-data',
                 data: data,

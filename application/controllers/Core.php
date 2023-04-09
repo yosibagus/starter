@@ -324,6 +324,18 @@ class Core extends CI_Controller
 
         echo json_encode($input);
     }
+
+    public function menu_tambah()
+    {
+        $data = [
+            'nama_menu' => $this->input->post('nama_menu'),
+            'icon' => $this->input->post('icon_menu')
+        ];
+
+        $this->db->insert('master_menu', $data);
+
+        echo json_encode($data);
+    }
 }
 
 /* End of file Core.php and path \application\controllers\Core.php */
