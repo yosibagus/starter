@@ -7,7 +7,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'unibamadura.ac.id',
 	'username' => 'u5647534_admin',
 	'password' => 'Adminunibamadura20',
 	'database' => 'u5647534_starter',
